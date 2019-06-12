@@ -1,0 +1,14 @@
+URxvt.perl-lib: /usr/lib/urxvt/perl/
+URxvt.perl-ext: default,matcher,tabbedex
+URxvt.perl-ext-common: default,matcher,tabbedex
+URxvt.tabbedex.new-button: false
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-Tab:          tabbedex:next_tab
+URxvt.keysym.Control-ISO_Left_Tab:    tabbedex:prev_tab
+URxvt.tabbedex.no-tabbedex-keys: true
+URxvt.tabbedex.reopen-on-close: false
+URxvt.keysym.Control-Shift-R: perl:tabbedex:rename_tab
+URxvt.url-launcher: brave-browser
+URxvt.underlineURLs: true
+URxvt.keysym.C-M-c: builtin-string:
+URxvt.keysym.C-M-v: builtin-string:

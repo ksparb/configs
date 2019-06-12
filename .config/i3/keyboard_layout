@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if setxkbmap -query | grep 'no' > /dev/null; then
+    case $BLOCK_BUTTON in
+        1) setxkbmap -layout us ;; # left click
+    esac
+    printf 'Norsk\n'
+else
+    case $BLOCK_BUTTON in
+        1) setxkbmap -layout no ;; # right click
+    esac
+    printf 'English\n'
+fi
