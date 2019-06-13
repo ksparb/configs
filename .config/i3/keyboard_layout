@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This i3blocks blocklet checks which of two keyboard layouts ('no' and 'us' here) is in use and prints it on the bar
+# Left-clicking the printed text switches between the two
+
 if setxkbmap -query | grep 'no' > /dev/null; then
     case $BLOCK_BUTTON in
         1) setxkbmap -layout us ;; # left click
@@ -7,7 +10,7 @@ if setxkbmap -query | grep 'no' > /dev/null; then
     printf 'Norsk\n'
 else
     case $BLOCK_BUTTON in
-        1) setxkbmap -layout no ;; # right click
+        1) setxkbmap -layout no ;; # left click
     esac
     printf 'English\n'
 fi
