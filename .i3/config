@@ -131,6 +131,7 @@ bindsym Mod1+Shift+8 move container to workspace 8
 bindsym Mod1+Shift+9 move container to workspace 9
 bindsym Mod1+Shift+0 move container to workspace 10
 
+
 # reload the configuration file
 bindsym Mod1+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -216,9 +217,20 @@ bindsym $sup+greater exec "sp next"
 bindsym $sup+less exec "sp prev"
 bindsym $sup+slash exec "sp play"
 
+# Set up current monitor layout
+exec xrandr --output DVI-I-1 --off --output DVI-I-0 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x0 --rotate normal
+
 # Set BG with feh and run Compton to enable transparency
 exec ~/.fehbg
 exec --no-startup-id compton
 
 # Run gnome keyring in i3, to enable saving accounts in Chrome etc
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+# Kill notify-osd and run dunst instead of zenity (notifications)
+#exec killall -q gsd-print-notifications
+exec killall -q notify-osd
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
+# Initialize keyboard layout as US English
+exec setxkbmap -layout us

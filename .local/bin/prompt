@@ -4,5 +4,7 @@
 # For examples:
 # ~./prompt "Do you want to shutdown?" "shutdown -h now"
 
+# Useful within other scripts
+
 [ $(echo 'No\nYes' | dmenu -i -p "$1") \
 == "Yes" ] && $2
