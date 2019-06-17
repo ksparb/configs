@@ -1,0 +1,55 @@
+[global]
+alignment = center
+follow = keyboard
+frame_width = 1
+geometry = "300x5-0+24"
+padding = 15
+horizontal_padding = 15
+font = Monospace 9
+separator_color = "#383838"
+frame_color = "#383838"
+word_wrap = true
+
+# Sort messages by urgency.
+sort = yes
+
+ellipsize = middle
+stack_duplicates = true
+
+markup = full
+# The format of the message.  Possible variables are:
+#   %a  appname
+#   %s  summary
+#   %b  body
+#   %i  iconname (including its path)
+#   %I  iconname (without its path)
+#   %p  progress value if set ([  0%] to [100%]) or nothing
+#   %n  progress value if set without any extra characters
+#   %%  Literal %
+# Markup is allowed
+#format = "<b>%s</b>\n%b"
+
+icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
+icon_position = left
+max_icon_size = 40
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+background = "#282828"
+foreground = "#d6d4d2"
+timeout = 5
+
+[urgency_normal]
+background = "#282828"
+foreground = "#a4a3a1"
+timeout = 10
+
+[urgency_critical]
+background = "#282828"
+foreground = "#dbbab1"
+timeout = 0
