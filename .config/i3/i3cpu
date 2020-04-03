@@ -6,4 +6,7 @@ $(ps axch -o cmd:15,%cpu --sort=-%cpu | head)" ;;
     #3) echo "Right click action" ;;
 esac
 
-sensors | awk '/^temp1/ {print $2}'
+#sensors | awk '/^temp1/ {print $2}'
+
+sensors | awk '/^Package/ {print $4}'
+

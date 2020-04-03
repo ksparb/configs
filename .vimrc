@@ -1,7 +1,7 @@
 set runtimepath+=~/.vim_runtime
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-set number
+set number relativenumber
 
 source ~/.vim_runtime/vimrcs/basic.vim
 source ~/.vim_runtime/vimrcs/filetypes.vim
@@ -13,10 +13,8 @@ source ~/.vim_runtime/my_configs.vim
 catch
 endtry
 
-" Navigate with jkl; instead of hjkl
-noremap ; l
-noremap l j
-noremap j h
+" Open MRU shortcut
+nnoremap <F2> :MRU<CR>
 
 " Set ability to toggle search highlighting (or just user :noh)
 nnoremap <F3> :set hlsearch!<CR>

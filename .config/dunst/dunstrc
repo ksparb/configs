@@ -34,10 +34,10 @@ icon_position = left
 max_icon_size = 40
 
 [shortcuts]
-close = ctrl+space
-close_all = ctrl+shift+space
-history = ctrl+grave
-context = ctrl+shift+period
+#close = ctrl+space
+#close_all = ctrl+shift+space
+#history = ctrl+grave
+#context = ctrl+shift+period
 
 [urgency_low]
 background = "#282828"
