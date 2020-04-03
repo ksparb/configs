@@ -29,8 +29,8 @@ font pango:monospace 8
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up k
-set $down l
+set $up l
+set $down k
 set $left j
 set $right semicolon
 
@@ -218,7 +218,11 @@ bindsym $sup+less exec "sp prev"
 bindsym $sup+slash exec "sp play"
 
 # Set up current monitor layout
-exec xrandr --output DVI-I-1 --off --output DVI-I-0 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x0 --rotate normal
+#exec xrandr --output DVI-I-1 --off --output DVI-I-0 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x0 --rotate normal
+exec xrandr --output DVI-I-0 --off --output DVI-I-1 --primary --mode 1920x1080 --pos 1920x384 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 1920x1200 --pos 3840x0 --rotate left --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x384 --rotate normal
+
+# Fix mouse speed (Logitech G600)
+exec xinput set-prop 12 155 0.7, 0, 0, 0, 0.7, 0, 0, 0, 1
 
 # Set BG with feh and run Compton to enable transparency
 exec ~/.fehbg

@@ -8,7 +8,7 @@ URxvt.keysym.Control-ISO_Left_Tab: tabbedex:prev_tab
 URxvt.tabbedex.no-tabbedex-keys:   true
 URxvt.tabbedex.reopen-on-close:    false
 URxvt.keysym.Control-Shift-R:      perl:tabbedex:rename_tab
-URxvt.url-launcher:                google-chrome
+URxvt.url-launcher:                firefox
 URxvt.underlineURLs:               true
 URxvt.keysym.C-M-c:                builtin-string:
 URxvt.keysym.C-M-v:                builtin-string:

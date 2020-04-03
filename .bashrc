@@ -141,3 +141,7 @@ alias gd='git diff'
 alias go='git checkout'
 alias portlookup='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 alias gitfiles='git ls-tree --full-tree --name-only -r'
+alias susp='sudo pm-suspend'
+
+# SET BROWSER
+export BROWSER=/usr/bin/firefox
