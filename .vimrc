@@ -16,12 +16,38 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins
 Plug 'tpope/vim-sensible'
-Plug 'junegunn/seoul256.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Development in particular
+Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier'
+
+" Plugs - colors, themes, fonts
+Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'ryanoasis/vim-devicons'     " Always set as last plug
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+" Some basics
+syntax on
+set encoding=UTF-8
+set number relativenumber
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Enable autocompletion
+set wildmode=longest,list,full
+
+" Disables automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Open MRU shortcut
 nnoremap <F2> :MRU<CR>
@@ -44,12 +70,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-
-" Custom things
-set number relativenumber
-set tabstop=2
-set shiftwidth=2
-set expandtab
 
 " Colors and themes
 " seoul256 (dark):
