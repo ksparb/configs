@@ -1,14 +1,28 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/scripts:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ken/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="aussiegeek"
+ZSH_THEME="nanotech"
+
+## POTENTIALS
+## gallifrey
+## clean
+## crunch
+## emotty
+## fwalch
+## garyblessington 
+## juanghurtado (git)
+## kafeitu
+## lukerandall (simplistic)
+## minimal (minimal, clear git status)
+## nanotech (incl. right side. nice git integration)
+## rkj-repos (very nice git integration, but kinda messy)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -58,7 +72,7 @@ ZSH_THEME="aussiegeek"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="%d.%m%k:%M:%S"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -68,11 +82,24 @@ ZSH_THEME="aussiegeek"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  gitfast
+  fast-syntax-highlighting
+  colored-man-pages
+  last-working-dir
+  common-aliases
+  history-substring-search
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export EDITOR='nvim'
+# Add nvim to PATH
+export PATH=$HOME/neovim/bin:$PATH
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -97,3 +124,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# =======================================
+# =======================================
+# ============ CUSTOM STUFF =============
+# =======================================
+# =======================================
+
+export CONFIGDIR=$HOME/.config
+export NVIMCONF=$CONFIGDIR/nvim/init.vim
+
+source ~/.zsh_aliases

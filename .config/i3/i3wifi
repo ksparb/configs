@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Short thing to display the signal strength of the connected wifi as a blocklet in i3bar
+# Changes color in a range from green to red in accordance with the current strength
+
+# github.com/ksparb
+
+SIGNAL_STRENGTH=$(nmcli device wifi | grep \* | grep -o 'bit/s.*' | awk '{print $2}')
+
+echo "Signal: $SIGNAL_STRENGTH%" # Long form
+echo "$SIGNAL_STRENGTH%" # Short form
+
+case $SIGNAL_STRENGTH in
+  6[1-9]|7[1-9]|80)
+    echo "#95C27D"
+    ;;
+  4[1-9]|5[1-9]|60)
+    echo "#F5D660"
+    ;;
+  2[1-9]|3[1-9]|40)
+    echo "#F59533"
+    ;;
+  [0-9]|1[0-9]|20)
+    echo "#E44A1A"
+    ;;
+  *)
+esac
+
+exit 0
+

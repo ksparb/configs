@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# Shortcut to connect a bluetooth device by specific MAC address
+#
+bluetoothctl << EOF
+connect CC:98:8B:C1:9B:3C
+EOF

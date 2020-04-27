@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Faulty bluetooth adapter, so WH1000XM3 frequently lags behind
+# This tiny script disconnects and reconnects it to fix the lag
+#
+bluetoothctl << EOF
+disconnect CC:98:8B:C1:9B:3C
+EOF
+sleep 5
+bluetoothctl << EOF
+connect CC:98:8B:C1:9B:3C
+EOF
