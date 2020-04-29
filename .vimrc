@@ -8,9 +8,18 @@ set number relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set termguicolors
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 set cmdheight=2
 set splitbelow splitright
+
+filetype plugin on
 
 " FINDING FILES:
 
@@ -42,13 +51,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'yegappan/mru'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " COLORS, THEMES, ETC
 Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ajmwagar/vim-deus'
+Plug 'chase/focuspoint-vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 
@@ -59,13 +73,14 @@ call plug#end()
 " " " " " " " " " " " " " " " " " " " " 
 
 " Visual customizations
-colorscheme gruvbox
+"let g:seoul256_background = 234
+let g:nord_cursor_line_number_background = 1
+colorscheme nord
 let g:airline_powerline_fonts = 1
-let g:airline_theme='angr'
+let g:airline_theme='deus'
 
 " Disables automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 
 " REMAPS
 nnoremap <F2> :MRU<CR>
@@ -76,3 +91,6 @@ nnoremap <silent> <leader>b :<C-U>Buffers<CR>
 
 " ABBREVS
 cnoreabbrev H vert bo h
+
+" FILETYPE SPECIFIC THINGS
+au BufReadPost,BufNewFile *.html,*.ejs hi link htmlEndTag htmlTag

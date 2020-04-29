@@ -9,4 +9,4 @@ alias ports='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 alias gitfiles='git ls-tree --full-tree --name-only -r'
 alias susp='sudo pm-suspend'
 alias colors='curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash'
-
+alias cra='npx create-react-app'
