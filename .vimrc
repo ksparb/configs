@@ -1,16 +1,14 @@
 " BASIC SETUP:
 
-" Enter the current millennium
 set nocompatible
 
-" Some basics
 set number relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set termguicolors
 
-augroup CursorLine
+augroup CursorLine "Removes cursorline on inactive windows, adds it again on focus
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
@@ -53,16 +51,18 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'prettier/vim-prettier'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " COLORS, THEMES, ETC
-Plug 'junegunn/seoul256.vim'
+"Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ajmwagar/vim-deus'
-Plug 'chase/focuspoint-vim'
-Plug 'kristijanhusak/vim-hybrid-material'
+"Plug 'chase/focuspoint-vim'
+"Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 
@@ -82,12 +82,18 @@ let g:airline_theme='deus'
 " Disables automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Enables use of nvim-colorizer
+"lua require'colorizer'.setup {css;}
+lua require 'colorizer'.setup { css = { css = true; }; 'javascript'; html = { mode = 'foreground'; } }
+"lua require 'colorizer'.setup { '*'; '!vim'; }
+
 " REMAPS
-nnoremap <F2> :MRU<CR>
-nnoremap <F3> :set hlsearch!<CR>
+nnoremap <silent> <F2> :MRU<CR>
+nnoremap <silent> <F3> :set hlsearch!<CR>
 nnoremap <silent> <leader>, :<C-U>NERDTreeFind<CR>
 nnoremap <silent> <leader>f :<C-U>Files<CR>
 nnoremap <silent> <leader>b :<C-U>Buffers<CR>
+nmap <F1> <nop>
 
 " ABBREVS
 cnoreabbrev H vert bo h
