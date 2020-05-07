@@ -7,6 +7,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set termguicolors
+set clipboard=unnamedplus
 
 augroup CursorLine "Removes cursorline on inactive windows, adds it again on focus
   au!
@@ -41,7 +42,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 " PLUGINS "
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTree'] }
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -53,6 +54,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'prettier/vim-prettier'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'SirVer/ultisnips'
+"Plug 'mlaursen/vim-react-snippets'
+Plug 'honza/vim-snippets'
 
 " COLORS, THEMES, ETC
 "Plug 'junegunn/seoul256.vim'
@@ -66,15 +70,41 @@ Plug 'ajmwagar/vim-deus'
 
 call plug#end()
 
-" " " " " " " " " " " " " " " " " " " " 
-" " " " " " " " " " " " " " " " " " " " 
-" " " " " "  CUSTOM STUFF " " " " " " " 
-" " " " " " " " " " " " " " " " " " " " 
-" " " " " " " " " " " " " " " " " " " " 
+" CoC stuff
+let g:coc_global_extensions = [
+      \ 'coc-tsserver'
+      \ ]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+" NERDTree configuration
+let NERDTreeWinPos="right"
+
+function! SmartNERDTree()
+  if @% == ""
+    NERDTreeToggle
+  else
+    NERDTreeFind
+  endif
+endfun
+
+" " " " " " " " " " " " " " " " " " "
+" " " " " " " " " " " " " " " " " " "
+" " " " " "  CUSTOM STUFF " " " " " "
+" " " " " " " " " " " " " " " " " " "
+" " " " " " " " " " " " " " " " " " "
 
 " Visual customizations
 "let g:seoul256_background = 234
 let g:nord_cursor_line_number_background = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
 colorscheme nord
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
@@ -88,15 +118,24 @@ lua require 'colorizer'.setup { css = { css = true; }; 'javascript'; html = { mo
 "lua require 'colorizer'.setup { '*'; '!vim'; }
 
 " REMAPS
-nnoremap <silent> <F2> :MRU<CR>
-nnoremap <silent> <F3> :set hlsearch!<CR>
-nnoremap <silent> <leader>, :<C-U>NERDTreeFind<CR>
-nnoremap <silent> <leader>f :<C-U>Files<CR>
-nnoremap <silent> <leader>b :<C-U>Buffers<CR>
-nmap <F1> <nop>
+nnoremap <silent>     <F2>            :MRU<CR>
+nnoremap <silent>     <F3>            :set hlsearch!<CR>
+nnoremap <silent>     <leader>,       :call SmartNERDTree()<CR>
+nnoremap <silent>     <leader>f       :<C-U>Files<CR>
+nnoremap <silent>     <leader>b       :<C-U>Buffers<CR>
+nnoremap              q:              <nop>
+nnoremap              Q               <nop>
+nmap                  <F1>            <nop>
+inoremap              {               {}<Left>
+inoremap              {<CR>           {<CR>}<Esc>O
+inoremap              {{              {
+inoremap              {}              {}
+
 
 " ABBREVS
 cnoreabbrev H vert bo h
+cnoreabbrev cwd lcd %:p:h
 
 " FILETYPE SPECIFIC THINGS
 au BufReadPost,BufNewFile *.html,*.ejs hi link htmlEndTag htmlTag
+autocmd FileType json syntax match Comment +\/\/.\+$+ " Corrects comment highlighting in .json files
