@@ -1,3 +1,5 @@
+!! Remember to reload config with `xrdb -load ~/.Xresources`
+
 URxvt.perl-lib:                    /usr/lib/urxvt/perl/
 URxvt.perl-ext:                    default,matcher,tabbedex
 URxvt.perl-ext-common:             default,matcher,tabbedex,selection-to-clipboard
