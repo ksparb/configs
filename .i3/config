@@ -216,10 +216,11 @@ bindsym $sup+slash exec "sp play"
 
 # Set up current monitor layout
 #exec xrandr --output DVI-I-1 --off --output DVI-I-0 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x0 --rotate normal
-exec xrandr --output DVI-I-0 --off --output DVI-I-1 --primary --mode 1920x1080 --pos 1920x384 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 1920x1200 --pos 3840x0 --rotate left --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x384 --rotate normal
+#exec xrandr --output DVI-I-0 --off --output DVI-I-1 --primary --mode 1920x1080 --pos 1920x384 --rotate normal --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 1920x1200 --pos 3840x0 --rotate left --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x384 --rotate normal
+exec xrandr --output DVI-I-1 --primary --mode 1920x1080 --pos 0x344 --rotate normal --output DVI-I-0 --off --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 1920x1200 --pos 3840x0 --rotate left --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 1920x344 --rotate normal
 
 # Fix mouse speed (Logitech G600)
-exec xinput set-prop 12 155 0.7, 0, 0, 0, 0.7, 0, 0, 0, 1
+#exec xinput set-prop 12 155 0.7, 0, 0, 0, 0.7, 0, 0, 0, 1
 
 # Set BG with feh and run Compton to enable transparency. Compton config is in ~/.config/compton.conf
 exec ~/.fehbg
@@ -239,3 +240,6 @@ exec setxkbmap -layout us
 exec setxkbmap -option "caps:escape"
 # Toggles caps lock by hitting both shift keys simultaneously instead
 exec setxkbmap -option "shift:both_capslock"
+
+# Runs Redshift, which works just like f.lux. Config file at ~/.config/redshift.conf
+exec redshift

@@ -12,3 +12,5 @@ alias colors='curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f4
 alias cra='npx create-react-app'
 alias wifi='nmcli n off && nmcli n on'
 alias ystr='tizonia --youtube-audio-stream'
+alias sudoo='sudo -E env "PATH=$PATH"'
+alias vi='nvim'
