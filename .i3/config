@@ -237,7 +237,7 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # Initialize keyboard layout as US English, 4 sup3r10r 1337 pr0gr4mm1n9 5p33d5
 exec setxkbmap -layout us
 # Turns the caps lock into another escape key
-exec setxkbmap -option "caps:escape"
+# exec setxkbmap -option "caps:escape"
 # Toggles caps lock by hitting both shift keys simultaneously instead
 exec setxkbmap -option "shift:both_capslock"
 
